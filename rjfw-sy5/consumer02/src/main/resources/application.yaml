@@ -1,0 +1,19 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: consumer02
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        service: ${spring.application.name}
+        server-addr: localhost:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: eb04b3d3-a163-45e1-95dd-7a71056b6249
+        group: default
+        file-extension: yml
+        import-check:
+          enabled: false

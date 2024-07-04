@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wentun.rjfw</groupId>
+    <artifactId>rjfw-sy3</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>developer01</module>
+        <module>developer02</module>
+        <module>consumer01</module>
+        <module>consumer02</module>
+    </modules>
+
+    <properties>
+        <!--   编译     -->
+        <java.version>18</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- 核心依赖 -->
+        <spring-boot.version>3.0.2</spring-boot.version>
+        <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+
+        <!--分离出这两个东西，是为了能够在 spring cloud alibaba不更新的时候，及时更新-->
+        <seata.version>1.6.1</seata.version>
+        <nacos.version>2.2.0</nacos.version>
+
+        <!-- 内部依赖 -->
+        <consumer01.version>1.0-SNAPSHOT</consumer01.version>
+        <consumer02.version>1.0-SNAPSHOT</consumer02.version>
+        <developer01.version>1.0-SNAPSHOT</developer01.version>
+        <developer02.version>1.0-SNAPSHOT</developer02.version>
+
+        <developer01-api.version>1.0-SNAPSHOT</developer01-api.version>
+        <developer02-api.version>1.0-SNAPSHOT</developer02-api.version>
+        <developer01-web.version>1.0-SNAPSHOT</developer01-web.version>
+        <developer02-web.version>1.0-SNAPSHOT</developer02-web.version>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

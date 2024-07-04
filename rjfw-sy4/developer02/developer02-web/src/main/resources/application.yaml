@@ -1,0 +1,14 @@
+server:
+  port: 8102
+
+spring:
+  application:
+    name: developer02-web
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719

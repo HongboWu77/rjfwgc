@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.wentun.rjfw</groupId>
+        <artifactId>rjfw-sy3</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>developer01</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>developer01</name>
+    <description>生产者一号</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>developer01-web</module>
+        <module>developer01-api</module>
+    </modules>
+
+</project>

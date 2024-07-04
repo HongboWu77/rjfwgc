@@ -1,0 +1,16 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    name: developer01-web
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        service: ${spring.application.name}
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719

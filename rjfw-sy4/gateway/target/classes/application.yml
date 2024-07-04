@@ -1,0 +1,54 @@
+server:
+  port: 88
+spring:
+  application:
+    name: gateway
+  cloud:
+    sentinel:
+      transport:
+        #配置sentinel dashboard地址
+        dashboard: 127.0.0.1:8080
+        port: 8719
+    gateway:
+      routes:
+        - id: consumer01
+          uri: lb://consumer01
+          predicates:
+            - Path=/consumer01/**
+          filters:
+            - RewritePath=/consumer01/(?<segment>/?.*),/$\{segment}
+
+        - id: consumer02
+          uri: lb://consumer02
+          predicates:
+            - Path=/consumer02/**
+          filters:
+            - RewritePath=/consumer02(?<segment>/?.*), $\{segment}
+
+        - id: developer01
+          uri: lb://developer01
+          predicates:
+            - Path=/developer01/**
+          filters:
+            - RewritePath=/developer01(?<segment>/?.*), $\{segment}
+
+        - id: developer02
+          uri: lb://developer02
+          predicates:
+            - Path=/developer02/**
+          filters:
+            - RewritePath=/developer02(?<segment>/?.*), $\{segment}
+
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: eb04b3d3-a163-45e1-95dd-7a71056b6249
+        group: default
+        file-extension: yml
+        import-check:
+          enabled: false
+  # mvc报错
+  main:
+    web-application-type: reactive

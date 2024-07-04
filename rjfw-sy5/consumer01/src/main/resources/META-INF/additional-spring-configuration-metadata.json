@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "my.name",
+      "type": "java.lang.String",
+      "description": "Description for my.name."
+    },
+    {
+      "name": "my.temp",
+      "type": "java.lang.String",
+      "description": "Description for my.temp."
+    }
+  ] }
